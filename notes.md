@@ -1069,3 +1069,18 @@ export async function getStaticProps({params}){
 - deploy to Vercel platform, create an account at https://vercel.com/signup
 - import your repo on Vercel
 - Develop, Preview, Ship
+
+
+# Dimensions of Components
+- import view component
+- account for points in pixels and the scale multiplier which will give the correct pixels needed for the height and width of device
+- use console.log(dimensions.get("screen"));
+- import
+- changes `orientation` mode to default from portrait to adjust for dimension changes in app.json
+- hooks start with `use`
+  - npm i @react-native-community/hooks
+  - import { useDimensions, useDeviceOrientation } from '@react-native-community/hooks'
+  - this will get us the dimensions of the screen for multiple orientations
+  - console.log(useDimensions, useDeviceOrientation)
+    - this will give us the properties for each orientation when we rotate the phone (portrait and/or landscape)
+    - const orientation = useDeviceOrientation(); 

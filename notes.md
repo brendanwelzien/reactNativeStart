@@ -1084,3 +1084,31 @@ export async function getStaticProps({params}){
   - console.log(useDimensions, useDeviceOrientation)
     - this will give us the properties for each orientation when we rotate the phone (portrait and/or landscape)
     - const orientation = useDeviceOrientation(); 
+
+# Building a Header
+- let's say we need three things... a status bar, a background color, and a header title
+- change `statusbar`? --> Import the `StatusBar` component from `react-native`
+
+```js
+// App.js
+import React from 'react';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { LinearGradient } from 'expo';
+import { primaryGradientArray } from './utils/Colors';
+export default class Main extends React.Component {
+  render() {
+    return (
+      <LinearGradient colors={primaryGradientArray} style={styles.container}>
+        <StatusBar barStyle="light-content" />;
+        <Text>Open up App.js to start working on your app!</Text>
+      </LinearGradient>
+    );
+  }
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  }
+});
+```
+- linear gradient wraps over RN's `view` component and creates a gradient looking background
